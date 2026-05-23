@@ -1,0 +1,161 @@
+/* Onboarding flow — wider cards than auth, multi-step forms. */
+
+.wrap {
+  width: 100%; max-width: 720px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em;
+  color: var(--brand-yellow); margin-bottom: 12px;
+}
+
+.title {
+  font-family: var(--font-montserrat); font-weight: 800;
+  font-size: clamp(28px, 4vw, 38px); line-height: 1.15; letter-spacing: -0.01em;
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  font-size: 15px; color: var(--text-secondary); margin: 0 0 36px;
+  max-width: 580px;
+}
+
+/* Role selector cards */
+.roleGrid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+@media (max-width: 640px) { .roleGrid { grid-template-columns: 1fr; } }
+
+.roleCard {
+  display: block; text-align: left;
+  padding: 28px 26px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  position: relative;
+  transition: border-color .15s ease, transform .15s ease;
+  text-decoration: none; color: inherit;
+  cursor: pointer;
+}
+.roleCard:hover {
+  border-color: var(--brand-yellow);
+  transform: translateY(-2px);
+}
+.roleCard::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--brand-yellow); border-radius: 12px 12px 0 0;
+  opacity: 0; transition: opacity .15s ease;
+}
+.roleCard:hover::before { opacity: 1; }
+
+.roleLabel {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+  color: var(--brand-yellow); margin-bottom: 8px;
+}
+.roleTitle {
+  font-family: var(--font-montserrat); font-weight: 700;
+  font-size: 22px; line-height: 1.2; margin: 0 0 8px;
+}
+.roleBody {
+  font-size: 14px; color: var(--text-secondary); margin: 0;
+}
+
+/* Form card */
+.formCard {
+  width: 100%; max-width: 720px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 36px;
+  position: relative;
+}
+.formCard::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--brand-yellow); border-radius: 12px 12px 0 0;
+}
+
+.sectionHead {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+  color: var(--brand-yellow); margin: 28px 0 14px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+}
+.sectionHead:first-of-type {
+  margin-top: 8px; border-top: 0; padding-top: 0;
+}
+
+.row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;
+}
+@media (max-width: 640px) { .row { grid-template-columns: 1fr; } }
+.rowTri {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 14px; margin-bottom: 14px;
+}
+@media (max-width: 640px) { .rowTri { grid-template-columns: 1fr; } }
+
+.field {
+  display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px;
+}
+.fieldRow { margin-bottom: 0; }
+.label {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--text-secondary);
+}
+.input, .select, .textarea {
+  width: 100%; padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: #fff; font-size: 14px; font-family: var(--font-inter);
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.textarea { resize: vertical; min-height: 80px; font-family: var(--font-inter); }
+.input::placeholder, .textarea::placeholder { color: var(--text-muted); }
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--brand-yellow);
+  box-shadow: 0 0 0 3px rgba(248, 188, 1, 0.15);
+}
+.select { appearance: none; cursor: pointer; background-image: linear-gradient(45deg, transparent 50%, var(--brand-yellow) 50%), linear-gradient(135deg, var(--brand-yellow) 50%, transparent 50%); background-position: calc(100% - 18px) center, calc(100% - 13px) center; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 36px; }
+.hint { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+.file {
+  padding: 18px 14px;
+  background: var(--bg);
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+  color: var(--text-muted); font-size: 13px;
+  text-align: center;
+}
+.file strong { color: var(--brand-yellow); display: block; margin-bottom: 4px; font-weight: 600; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; }
+
+.actions {
+  margin-top: 28px; padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  flex-wrap: wrap;
+}
+.back {
+  color: var(--text-muted); font-size: 14px; text-decoration: none;
+}
+.back:hover { color: var(--brand-yellow); }
+
+.submit {
+  padding: 14px 28px;
+  background: var(--brand-yellow); color: var(--bg);
+  border: 0; border-radius: 8px; cursor: pointer;
+  font-family: var(--font-montserrat); font-weight: 700; font-size: 14px;
+  letter-spacing: 0.02em;
+  transition: background .15s ease, transform .15s ease;
+}
+.submit:hover { background: #FFD43A; transform: translateY(-1px); }
+.submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.error {
+  margin-bottom: 16px; padding: 12px 14px;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: 8px;
+  color: var(--status-red);
+  font-size: 13px;
+}

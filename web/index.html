@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SubConnects — The Verified Workforce Network for Roofing</title>
+  <meta name="description" content="SubConnects is the verified workforce network for commercial roofing. We verify every crew's insurance, license, and references — by hand, by phone." />
+  <meta property="og:title" content="SubConnects — The Verified Workforce Network for Roofing" />
+  <meta property="og:description" content="Find roofing crews you can actually trust. Verified. Trusted. Performance-driven." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://subconnects.com" />
+  <meta name="theme-color" content="#0A1530" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    /* ----------------------------------------------------------------------
+       SubConnects brand tokens
+       ---------------------------------------------------------------------- */
+    :root {
+      --bg:           #0A1530;
+      --bg-card:      #162542;
+      --bg-card-hi:   #1F3056;
+      --border:       #2A3B66;
+      --yellow:       #F8BC01;
+      --yellow-dim:   #C49600;
+      --white:        #FFFFFF;
+      --text-muted:   #8B96AE;
+      --text-2:       #C5CCDD;
+      --red:          #F87171;
+      --green:        #4ADE80;
+
+      --font-head:    'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-body:    'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+
+      --max-w:        1180px;
+      --pad-x:        clamp(20px, 4vw, 56px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    img, svg { max-width: 100%; display: block; }
+    a { color: var(--yellow); text-decoration: none; transition: color .15s ease; }
+    a:hover { color: var(--white); }
+    h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; letter-spacing: -0.01em; margin: 0; }
+    h1 { font-size: clamp(36px, 5.5vw, 64px); line-height: 1.05; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(28px, 3.6vw, 42px); line-height: 1.1; }
+    h3 { font-size: clamp(18px, 2vw, 22px); line-height: 1.25; }
+    h4 { font-size: 15px; line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase; color: var(--yellow); font-weight: 700; }
+    p  { margin: 0 0 1rem; color: var(--text-2); }
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding-inline: var(--pad-x); }
+    .section   { padding-block: clamp(64px, 10vw, 120px); }
+    .section-tight { padding-block: clamp(48px, 7vw, 80px); }
+    .divider {
+      border-top: 1px solid var(--border);
+    }
+
+    /* ----------------------------------------------------------------------
+       Nav
+       ---------------------------------------------------------------------- */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(10, 21, 48, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-block: 14px; gap: 24px;
+    }
+    .logo {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-head); font-weight: 800; letter-spacing: 0.12em;
+      color: var(--white); font-size: 14px;
+    }
+    .logo-mark {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; border-radius: 7px;
+      background: var(--yellow); color: var(--bg);
+      font-family: var(--font-head); font-weight: 800; font-size: 13px;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 28px;
+    }
+    .nav-link {
+      color: var(--text-2); font-size: 14px; font-weight: 500;
+    }
+    .nav-link:hover { color: var(--white); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px;
+      background: var(--yellow); color: var(--bg);
+      border-radius: 6px; font-weight: 700; font-size: 14px;
+      transition: background .15s ease, transform .15s ease;
+    }
+    .nav-cta:hover { background: #FFD43A; color: var(--bg); transform: translateY(-1px); }
+    @media (max-width: 720px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+
+    /* ----------------------------------------------------------------------
+       Hero
+       ---------------------------------------------------------------------- */
+    .hero {
+      position: relative; overflow: hidden;
+      padding-block: clamp(80px, 12vw, 160px) clamp(60px, 9vw, 100px);
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(900px 500px at 80% 10%, rgba(248,188,1,0.10), transparent 60%),
+        radial-gradient(700px 400px at 0% 90%, rgba(248,188,1,0.05), transparent 60%);
+    }
+    .hero-inner { position: relative; text-align: center; max-width: 900px; margin-inline: auto; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px; border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 12px; letter-spacing: 0.2em; color: var(--yellow); font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); box-shadow: 0 0 12px var(--yellow); }
+    .hero h1 .accent { color: var(--yellow); }
+    .hero-sub {
+      margin-top: 24px;
+      font-size: clamp(17px, 1.8vw, 20px);
+      color: var(--text-2);
+      max-width: 720px; margin-inline: auto;
+    }
+    .hero-meta {
+      margin-top: 24px;
+      font-family: var(--font-mono);
+      font-size: 13px; letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .hero-meta strong { color: var(--yellow); font-weight: 500; }
+    .hero-ctas {
+      display: flex; gap: 14px; justify-content: center;
+      flex-wrap: wrap; margin-top: 40px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 28px; border-radius: 8px;
+      font-family: var(--font-head); font-weight: 700; font-size: 15px;
+      letter-spacing: 0.02em; cursor: pointer; transition: all .15s ease;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--yellow); color: var(--bg); }
+    .btn-primary:hover { background: #FFD43A; color: var(--bg); transform: translateY(-2px); }
+    .btn-secondary { background: transparent; color: var(--white); border-color: var(--border); }
+    .btn-secondary:hover { background: var(--bg-card); border-color: var(--yellow); color: var(--white); }
+    .btn-arrow { transition: transform .15s ease; }
+    .btn:hover .btn-arrow { transform: translateX(3px); }
+
+    /* trust strip */
+    .trust-strip {
+      display: flex; justify-content: center; gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 56px;
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+    .trust-strip span { color: var(--text-muted); }
+    .trust-sep { color: var(--border); }
+
+    /* ----------------------------------------------------------------------
+       Problem section
+       ---------------------------------------------------------------------- */
+    .section-head { max-width: 720px; margin-bottom: 56px; }
+    .section-head.center { margin-inline: auto; text-align: center; }
+    .section-head h4 { margin-bottom: 14px; }
+    .section-head p { color: var(--text-2); font-size: 17px; }
+
+    .problem-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;
+    }
+    .problem-card {
+      padding: 26px 22px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 10px;
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .problem-x {
+      flex: 0 0 28px; height: 28px; border-radius: 50%;
+      background: rgba(248, 113, 113, 0.15);
+      color: var(--red); display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 18px; line-height: 1;
+    }
+    .problem-card p { margin: 0; font-size: 15px; color: var(--text-2); }
+
+    /* ----------------------------------------------------------------------
+       Pillars (What SubConnects is)
+       ---------------------------------------------------------------------- */
+    .positioning-line {
+      font-family: var(--font-head); font-weight: 700;
+      font-size: clamp(22px, 3vw, 34px); line-height: 1.15;
+      text-align: center; margin-bottom: 56px;
+    }
+    .positioning-line .strike { color: var(--text-muted); text-decoration: line-through; text-decoration-color: var(--border); }
+    .nowrap { display: inline-block; white-space: nowrap; }
+    .pillar-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;
+    }
+    .pillar {
+      padding: 32px 24px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 10px;
+      position: relative;
+    }
+    .pillar::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--yellow); border-radius: 10px 10px 0 0;
+    }
+    .pillar-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--bg-card-hi); border: 1px solid var(--yellow);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--yellow); font-size: 20px; margin-bottom: 18px;
+    }
+    .pillar h3 { margin-bottom: 8px; }
+    .pillar p  { margin: 0; font-size: 14px; color: var(--text-muted); }
+
+    /* ----------------------------------------------------------------------
+       Side sections (For Contractors / For Crews)
+       ---------------------------------------------------------------------- */
+    .side {
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start;
+    }
+    @media (max-width: 880px) { .side { grid-template-columns: 1fr; gap: 32px; } }
+    .side-aside h2 { margin-bottom: 18px; }
+    .side-aside .pricing-card {
+      margin-top: 24px;
+      padding: 22px 22px 20px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 10px;
+      position: relative;
+    }
+    .side-aside .pricing-card::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--yellow); border-radius: 10px 10px 0 0;
+    }
+    .pricing-card .pricing-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; color: var(--yellow); }
+    .pricing-card .pricing-value { font-family: var(--font-head); font-weight: 800; font-size: 38px; color: var(--white); margin-block: 6px 4px; line-height: 1; }
+    .pricing-card .pricing-value .per { font-size: 16px; color: var(--text-2); font-weight: 500; }
+    .pricing-card .pricing-meta { font-size: 13px; color: var(--text-muted); margin-block: 8px 12px; }
+    .pricing-card .pricing-disclaimer { font-size: 11px; color: var(--text-muted); font-style: italic; }
+    .side-cta { margin-top: 22px; }
+
+    .steps { display: flex; flex-direction: column; gap: 14px; }
+    .step {
+      display: grid; grid-template-columns: 44px 1fr; gap: 18px; align-items: start;
+      padding: 22px 24px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 10px;
+    }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--yellow); color: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-weight: 800; font-size: 16px;
+    }
+    .step h3 { margin-bottom: 6px; }
+    .step p  { margin: 0; color: var(--text-2); font-size: 15px; }
+
+    /* ----------------------------------------------------------------------
+       Verified-means section
+       ---------------------------------------------------------------------- */
+    .verified-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;
+    }
+    .verified-card {
+      padding: 28px 24px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 10px;
+    }
+    .verified-card .vc-tag {
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
+      background: rgba(248, 188, 1, 0.12); color: var(--yellow);
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+      margin-bottom: 14px;
+    }
+    .verified-card p { font-size: 14px; color: var(--text-2); margin: 0; }
+    .verified-foot {
+      margin-top: 32px; padding: 22px 26px;
+      background: var(--bg-card-hi); border: 1px solid var(--yellow);
+      border-radius: 10px;
+      font-family: var(--font-head); font-weight: 600; font-size: 17px;
+      text-align: center; color: var(--white);
+    }
+    .verified-foot strong { color: var(--yellow); }
+
+    /* ----------------------------------------------------------------------
+       Roadmap
+       ---------------------------------------------------------------------- */
+    .roadmap {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    }
+    @media (max-width: 920px) { .roadmap { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .roadmap { grid-template-columns: 1fr; } }
+    .roadmap-card {
+      padding: 22px 20px 24px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 10px;
+      position: relative;
+    }
+    .roadmap-card.now { border-color: var(--yellow); background: var(--bg-card-hi); }
+    .roadmap-stage { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.15em; color: var(--yellow); }
+    .roadmap-card h3 { margin-block: 8px 6px; font-size: 18px; }
+    .roadmap-card .when { font-size: 12px; color: var(--text-muted); font-style: italic; margin-bottom: 10px; }
+    .roadmap-card p { font-size: 13px; color: var(--text-2); margin: 0; }
+    .now-badge {
+      position: absolute; top: -10px; right: 14px;
+      background: var(--yellow); color: var(--bg);
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em;
+      padding: 4px 10px; border-radius: 999px; font-weight: 700;
+    }
+
+    /* ----------------------------------------------------------------------
+       FAQ accordion
+       ---------------------------------------------------------------------- */
+    .faq-list { max-width: 800px; margin-inline: auto; }
+    details.faq {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 0 24px;
+      margin-bottom: 12px;
+      transition: border-color .15s ease;
+    }
+    details.faq[open] { border-color: var(--yellow); }
+    details.faq summary {
+      list-style: none; cursor: pointer;
+      padding-block: 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      font-family: var(--font-head); font-weight: 600; font-size: 16px;
+      color: var(--white);
+    }
+    details.faq summary::-webkit-details-marker { display: none; }
+    details.faq summary::after {
+      content: "+"; color: var(--yellow); font-size: 24px; font-weight: 400;
+      transition: transform .2s ease;
+      line-height: 1;
+    }
+    details.faq[open] summary::after { transform: rotate(45deg); }
+    details.faq .faq-a {
+      padding-bottom: 22px; color: var(--text-2); font-size: 15px;
+      border-top: 1px solid var(--border); padding-top: 18px;
+      margin-top: -2px;
+    }
+
+    /* ----------------------------------------------------------------------
+       Final CTA + form embeds
+       ---------------------------------------------------------------------- */
+    .cta {
+      background:
+        linear-gradient(180deg, transparent, rgba(248,188,1,0.04) 50%, transparent),
+        var(--bg);
+      border-block: 1px solid var(--border);
+    }
+    .cta-inner { text-align: center; max-width: 800px; margin-inline: auto; margin-bottom: 56px; }
+    .form-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+    @media (max-width: 880px) { .form-grid { grid-template-columns: 1fr; } }
+    .form-card {
+      padding: 28px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 12px;
+      position: relative;
+    }
+    .form-card::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--yellow); border-radius: 12px 12px 0 0;
+    }
+    .form-card h3 { margin-bottom: 6px; }
+    .form-card p  { color: var(--text-muted); font-size: 14px; margin-bottom: 18px; }
+    .form-placeholder {
+      padding: 36px 20px; background: var(--bg-card-hi);
+      border: 1px dashed var(--border); border-radius: 8px;
+      color: var(--text-muted); font-family: var(--font-mono); font-size: 12px;
+      text-align: center; line-height: 1.7;
+    }
+    .form-placeholder strong { color: var(--yellow); display: block; margin-bottom: 6px; font-weight: 600; }
+
+    /* ----------------------------------------------------------------------
+       Footer
+       ---------------------------------------------------------------------- */
+    footer {
+      padding-block: 56px 40px; border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+    }
+    @media (max-width: 720px) { .footer-inner { grid-template-columns: 1fr; text-align: center; justify-items: center; } }
+    .footer-tag {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em;
+      color: var(--text-muted);
+    }
+    .footer-links {
+      display: flex; gap: 24px; font-size: 13px; color: var(--text-muted);
+    }
+    .footer-links a { color: var(--text-2); }
+    .footer-links a:hover { color: var(--yellow); }
+    .footer-copy {
+      margin-top: 24px; padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--text-muted); text-align: center;
+    }
+
+    /* Skip link for a11y */
+    .skip { position: absolute; left: -9999px; }
+    .skip:focus { left: 12px; top: 12px; background: var(--yellow); color: var(--bg); padding: 8px 12px; border-radius: 6px; z-index: 100; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Primary">
+    <div class="container nav-inner">
+      <a href="#top" class="logo">
+        <span class="logo-mark" aria-hidden="true">SC</span>
+        <span>SUB&nbsp;CONNECTS</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="#for-contractors">For Contractors</a>
+        <a class="nav-link" href="#for-crews">For Crews</a>
+        <a class="nav-link" href="#how-verified">Verification</a>
+        <a class="nav-link" href="#faq">FAQ</a>
+        <a class="nav-cta" href="#waitlist">Join Waitlist <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <span class="hero-eyebrow">
+          <span class="hero-dot"></span>
+          THE VERIFIED WORKFORCE NETWORK FOR ROOFING
+        </span>
+        <h1>Find roofing crews you can <span class="accent">actually trust</span>.</h1>
+        <p class="hero-sub">
+          SubConnects is the verified workforce network for commercial roofing. We verify every crew's insurance, license, and references — by hand, by phone — so contractors stop hiring blind and good crews stop staying invisible.
+        </p>
+        <p class="hero-meta">
+          NOW BUILDING&nbsp;&nbsp;·&nbsp;&nbsp;FIRST METRO: <strong>DALLAS-FORT WORTH</strong>
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#contractor-form">I'm a Contractor <span class="btn-arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-secondary" href="#crew-form">I'm a Sub Crew <span class="btn-arrow" aria-hidden="true">→</span></a>
+        </div>
+        <div class="trust-strip">
+          <span>VERIFIED</span>
+          <span class="trust-sep">·</span>
+          <span>TRUSTED</span>
+          <span class="trust-sep">·</span>
+          <span>PERFORMANCE-DRIVEN</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section divider" id="the-problem">
+      <div class="container">
+        <div class="section-head">
+          <h4>THE PROBLEM</h4>
+          <h2>Roofing labor is the most broken hiring market in construction.</h2>
+        </div>
+        <div class="problem-grid">
+          <div class="problem-card"><span class="problem-x">✕</span><p>Crews get found through Facebook groups, parking-lot conversations, and whisper networks.</p></div>
+          <div class="problem-card"><span class="problem-x">✕</span><p>There's no shared standard for what "qualified" means.</p></div>
+          <div class="problem-card"><span class="problem-x">✕</span><p>Workers' comp ghost policies are common and hard to detect.</p></div>
+          <div class="problem-card"><span class="problem-x">✕</span><p>Manufacturer certifications go to contractors, not crews — leaving most of the working labor force without a portable credential.</p></div>
+          <div class="problem-card"><span class="problem-x">✕</span><p>$200K mistakes are routine. Good crews stay invisible. Bad crews keep working.</p></div>
+          <div class="problem-card"><span class="problem-x">✕</span><p>The industry runs on trust that doesn't scale.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IT IS / PILLARS -->
+    <section class="section divider" id="positioning">
+      <div class="container">
+        <div class="section-head center">
+          <h4>WHAT SUBCONNECTS IS</h4>
+        </div>
+        <p class="positioning-line">
+          <span class="strike nowrap">Not a marketplace.</span>&nbsp;
+          <span class="strike nowrap">Not a job board.</span>&nbsp;
+          <span class="strike nowrap">Not a staffing company.</span>
+          <br/>
+          The <span style="color:var(--yellow)" class="nowrap">trust infrastructure</span> for roofing labor.
+        </p>
+        <div class="pillar-grid">
+          <div class="pillar">
+            <div class="pillar-icon" aria-hidden="true">✓</div>
+            <h3>Verification</h3>
+            <p>Every crew, manually verified. Insurance, license, and references confirmed by phone.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon" aria-hidden="true">↗</div>
+            <h3>Performance</h3>
+            <p>Real job outcomes logged on the platform. Production rates, callbacks, completion — over time.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon" aria-hidden="true">⇆</div>
+            <h3>Accountability</h3>
+            <p>Two-way public reviews. Crews rate contractors on payment behavior. Contractors rate crews on quality.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon" aria-hidden="true">●</div>
+            <h3>Trust</h3>
+            <p>Standards that hold. Reviewed continuously, not once. The credential travels with the crew.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOR CONTRACTORS -->
+    <section class="section divider" id="for-contractors">
+      <div class="container side">
+        <div class="side-aside">
+          <h4>FOR CONTRACTORS</h4>
+          <h2>Hire roofing crews with the noise filtered out.</h2>
+          <p>Only verified crews. Structured inquiries. Two-way accountability after every engagement.</p>
+          <div class="pricing-card">
+            <div class="pricing-label">CONTRACTOR PRICING</div>
+            <div class="pricing-value">$299<span class="per"> / month</span></div>
+            <div class="pricing-meta">Full directory access · unlimited outreach · concierge onboarding · ACH only</div>
+            <div class="pricing-disclaimer">Pricing subject to change at launch.</div>
+          </div>
+          <a class="btn btn-primary side-cta" href="#contractor-form">Join the Contractor Waitlist <span class="btn-arrow" aria-hidden="true">→</span></a>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div><h3>Search verified crews in your region.</h3><p>Filter by system (TPO, EPDM, BUR, modified bitumen, slate, metal, more), by service area, by verification status. See only crews we've personally verified.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div><h3>Inquire directly.</h3><p>Send a structured project inquiry. The crew sees the scope, the metro, the system, the budget band. They respond or they don't — no auctions, no spam.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div><h3>Engage with confidence.</h3><p>When you both agree, the engagement starts. Both sides confirm. Work happens off-platform. Both sides confirm completion.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div><h3>Review and be reviewed.</h3><p>Public reviews in both directions — quality, punctuality, communication; and payment behavior, fair treatment, scope clarity. Trust gets earned, not asserted.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOR CREWS -->
+    <section class="section divider" id="for-crews">
+      <div class="container side">
+        <div class="side-aside">
+          <h4>FOR SUB CREWS</h4>
+          <h2>Get verified. Get found. Get paid what your work is worth.</h2>
+          <p>A verified profile that travels with you. Contractor inquiries built on trust, not auctions.</p>
+          <div class="pricing-card">
+            <div class="pricing-label">CREW PRICING</div>
+            <div class="pricing-value">FREE</div>
+            <div class="pricing-meta">Verified profile · contractor inquiries · reputation building</div>
+            <div class="pricing-disclaimer">Premium tiers and skill-badge assessments will be paid options later — we'll tell you before anything changes.</div>
+          </div>
+          <a class="btn btn-primary side-cta" href="#crew-form">Join the Crew Waitlist <span class="btn-arrow" aria-hidden="true">→</span></a>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div><h3>Build a verified profile.</h3><p>Upload your insurance, license, and references. We call every reference. When you pass, your profile goes live — and only verified crews appear in search.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div><h3>Get inquiries from real contractors.</h3><p>Verified commercial roofing contractors find you by system, location, and reputation. No auction bidding. No race to the bottom.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div><h3>Work, complete, get reviewed.</h3><p>Both sides leave reviews after every engagement. Your reputation compounds. Vet the contractor before you bid — payment behavior is in the open.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div><h3>Build a credential that travels with you.</h3><p>Today: verified status. Coming next: system-specific skill badges (TPO, EPDM, BUR, more) and tiered certifications — Bronze, Silver, Gold, Platinum. The credential belongs to your crew.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT VERIFIED MEANS -->
+    <section class="section divider" id="how-verified">
+      <div class="container">
+        <div class="section-head center">
+          <h4>WHAT "VERIFIED" ACTUALLY MEANS</h4>
+          <h2>We hate the word as much as you do. Here's what we actually do.</h2>
+          <p>Most platforms throw "verified" around without backing it up. We check every claim, by hand, by phone.</p>
+        </div>
+        <div class="verified-grid">
+          <div class="verified-card">
+            <span class="vc-tag">INSURANCE</span>
+            <p>Certificate of insurance uploaded — then we contact the carrier to confirm the policy is active and not a ghost policy.</p>
+          </div>
+          <div class="verified-card">
+            <span class="vc-tag">LICENSE</span>
+            <p>State contractor or business license, cross-checked against the state registry. Expiry dates tracked.</p>
+          </div>
+          <div class="verified-card">
+            <span class="vc-tag">REFERENCES</span>
+            <p>Two or more contractor references — each one called by our team. We ask about quality, completion, and how the last job actually went.</p>
+          </div>
+          <div class="verified-card">
+            <span class="vc-tag">CURRENCY</span>
+            <p>Verifications expire. Insurance renewals, license expiry — when documents lapse, crews fall out of search until they renew.</p>
+          </div>
+        </div>
+        <div class="verified-foot">
+          No automated reference forms. No self-attestation. <strong>Every "yes" is a phone call.</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section class="section divider" id="roadmap">
+      <div class="container">
+        <div class="section-head center">
+          <h4>THE ROADMAP</h4>
+          <h2>Lean now. Earn the right to expand.</h2>
+          <p>Procore didn't launch with embedded payments. ServiceTitan didn't launch with payment infrastructure. The strongest platforms become ecosystems gradually.</p>
+        </div>
+        <div class="roadmap">
+          <div class="roadmap-card now">
+            <span class="now-badge">NOW</span>
+            <div class="roadmap-stage">STAGE 0 → 1</div>
+            <h3>Hand-recruit + soft launch</h3>
+            <div class="when">Today through month 6</div>
+            <p>First cohort of 50 verified crews + 15-20 paying contractors in Dallas-Fort Worth. Concierge verification, manual matching.</p>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-stage">STAGE 2</div>
+            <h3>Density & tiering</h3>
+            <div class="when">Months 6 to 12</div>
+            <p>Tiered pricing. Premium crew visibility. First skill-specific badges — TPO, EPDM, BUR, modified bitumen.</p>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-stage">STAGE 3 → 4</div>
+            <h3>Second metro + SubConnects Pay</h3>
+            <div class="when">Year 1 to 2</div>
+            <p>Atlanta or Phoenix next. ACH payment rails between contractor and crew — embedded, audited, fast.</p>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-stage">STAGE 5</div>
+            <h3>Quick Pay + national</h3>
+            <div class="when">Year 2 to 5+</div>
+            <p>Embedded financing. Multi-metro rollout. The verified workforce infrastructure layer for construction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section divider" id="faq">
+      <div class="container">
+        <div class="section-head center">
+          <h4>FAQ</h4>
+          <h2>What you're probably wondering.</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq" open>
+            <summary>What does verification actually mean?</summary>
+            <div class="faq-a">Insurance certificate confirmed with the carrier. License confirmed with the state. Two or more references called by phone. Documented in your file. Re-checked when documents expire.</div>
+          </details>
+          <details class="faq">
+            <summary>How is this different from Labor Central?</summary>
+            <div class="faq-a">Labor Central went free in 2025 — a signal that contractors weren't paying for shallow verification. SubConnects charges $299/month because the verification is deep, the platform is moderated, and the reputation data is real. Different product, different standard.</div>
+          </details>
+          <details class="faq">
+            <summary>Who's behind SubConnects?</summary>
+            <div class="faq-a">A team with deep commercial roofing expertise and an existing community of contractors through Executive Roof Coach. We've spent years inside this industry. We know which crews actually deliver. We're building this because the gap is obvious to anyone who's tried to hire a crew.</div>
+          </details>
+          <details class="faq">
+            <summary>When do you launch?</summary>
+            <div class="faq-a">Soft launch begins as soon as we've hand-recruited 50 verified crews and 15-20 paying contractors in Dallas-Fort Worth. Waitlist signups go first.</div>
+          </details>
+          <details class="faq">
+            <summary>What does $299 a month get a contractor?</summary>
+            <div class="faq-a">Full directory access. Unlimited inquiries to verified crews. Concierge onboarding from our team. Verified status on your own profile. Access to crew performance data and review history.</div>
+          </details>
+          <details class="faq">
+            <summary>What do crews pay?</summary>
+            <div class="faq-a">Nothing at the baseline tier. Verified profile, contractor inquiries, reputation building — all free. Premium visibility and skill assessments are paid options we'll introduce later, after the platform earns the right.</div>
+          </details>
+          <details class="faq">
+            <summary>Where can I see SubConnects in action?</summary>
+            <div class="faq-a">Today, only on the waitlist. We'll invite waitlist members in cohorts as the platform comes online. Sign up below to be in the first wave.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / FORMS -->
+    <section class="cta section" id="waitlist">
+      <div class="container">
+        <div class="cta-inner">
+          <h4>JOIN THE WAITLIST</h4>
+          <h2>Verified. Trusted. <span class="nowrap">Performance-driven.</span></h2>
+          <p>The verified labor lane for commercial roofing is open — and we're first. Pick your side.</p>
+        </div>
+        <div class="form-grid">
+          <div class="form-card" id="contractor-form">
+            <h3>Contractor Waitlist</h3>
+            <p>For commercial roofing contractors hiring labor-only crews.</p>
+            <div class="form-placeholder">
+              <strong>TALLY FORM EMBED — CONTRACTOR</strong>
+              Replace this block with the Tally embed snippet.<br/>
+              Fields: company name · work email · phone (opt) · metro · jobs/year · biggest sourcing pain (opt)
+            </div>
+          </div>
+          <div class="form-card" id="crew-form">
+            <h3>Crew Waitlist</h3>
+            <p>For labor-only roofing crews looking for verified contractor work.</p>
+            <div class="form-placeholder">
+              <strong>TALLY FORM EMBED — CREW</strong>
+              Replace this block with the Tally embed snippet.<br/>
+              Fields: crew name · foreman name · work email · phone (opt) · base city · systems · years · crew size
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#top" class="logo">
+          <span class="logo-mark" aria-hidden="true">SC</span>
+          <span>SUB&nbsp;CONNECTS</span>
+        </a>
+        <div class="footer-links">
+          <a href="#for-contractors">Contractors</a>
+          <a href="#for-crews">Crews</a>
+          <a href="#how-verified">Verification</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-tag" style="text-align:center; margin-top: 28px;">VERIFIED · TRUSTED · PERFORMANCE-DRIVEN</div>
+      <div class="footer-copy">
+        © 2026 SubConnects. All rights reserved. · subconnects.com<br/>
+        Privacy Policy · Terms of Service <em>(in draft)</em>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
