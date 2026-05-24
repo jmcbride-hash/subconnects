@@ -1,5 +1,6 @@
 import Link from "next/link";
 import s from "../landing.module.css";
+import TallyForm from "@/components/TallyForm";
 
 export const metadata = {
   title: "For Contractors · SubConnects",
@@ -81,11 +82,19 @@ export default function ForContractorsPage() {
         >
           <h3>Join the Contractor Waitlist</h3>
           <p>First metro: Dallas-Fort Worth. We&apos;ll reach out within 1 business day.</p>
-          <div className={s.formPlaceholder}>
-            <strong>TALLY FORM EMBED — CONTRACTOR</strong>
-            Replace this block with the Tally embed snippet.<br />
-            Fields: company name · work email · phone (opt) · metro · jobs/year · biggest sourcing pain (opt)
-          </div>
+          <TallyForm
+            formId={process.env.NEXT_PUBLIC_TALLY_CONTRACTOR_FORM_ID}
+            placeholder={
+              <>
+                <strong style={{ display: "block", marginBottom: 6, color: "var(--brand-yellow)", fontWeight: 600 }}>
+                  TALLY FORM EMBED — CONTRACTOR
+                </strong>
+                Set <code style={{ background: "rgba(0,0,0,0.3)", padding: "1px 4px", borderRadius: 3 }}>NEXT_PUBLIC_TALLY_CONTRACTOR_FORM_ID</code> in Vercel to activate.
+                <br />
+                Fields: company name · work email · phone (opt) · metro · jobs/year · biggest sourcing pain (opt)
+              </>
+            }
+          />
         </div>
       </div>
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import s from "../landing.module.css";
+import TallyForm from "@/components/TallyForm";
 
 export const metadata = {
   title: "For Sub Crews · SubConnects",
@@ -80,11 +81,19 @@ export default function ForCrewsPage() {
         >
           <h3>Join the Crew Waitlist</h3>
           <p>Dallas-Fort Worth first. We&apos;ll call you within 1 business day.</p>
-          <div className={s.formPlaceholder}>
-            <strong>TALLY FORM EMBED — CREW</strong>
-            Replace this block with the Tally embed snippet.<br />
-            Fields: crew name · foreman name · work email · phone (opt) · base city · systems · years · crew size
-          </div>
+          <TallyForm
+            formId={process.env.NEXT_PUBLIC_TALLY_CREW_FORM_ID}
+            placeholder={
+              <>
+                <strong style={{ display: "block", marginBottom: 6, color: "var(--brand-yellow)", fontWeight: 600 }}>
+                  TALLY FORM EMBED — CREW
+                </strong>
+                Set <code style={{ background: "rgba(0,0,0,0.3)", padding: "1px 4px", borderRadius: 3 }}>NEXT_PUBLIC_TALLY_CREW_FORM_ID</code> in Vercel to activate.
+                <br />
+                Fields: crew name · foreman name · work email · phone (opt) · base city · systems · years · crew size
+              </>
+            }
+          />
         </div>
       </div>
 
